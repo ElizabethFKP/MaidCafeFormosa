@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maid Café Formosa</title>
+    <link rel="stylesheet" href="css.css">
+    <style>
+        .item-name {
+            font-weight: bold;
+            font-family: 'Bubble';
+        }
+        .item-price {
+            font-family: Arial, sans-serif;
+        }
+        .item-number {
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Bubble';
+            color: #333;
+            transition: background-image 0.5s ease; /* Animación de fondo */
+        }
+        @font-face {
+            font-family: 'Bubble';
+            src: url('Fonts/Bubbleboddy.ttf') format('truetype'); /* Ajusta la ruta */
+            font-weight: normal;
+            font-style: normal;
+        }
+        header {
+            background: #F8C8DC;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            z-index: 1;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav button {
+            margin: 0 15px;
+            padding: 10px 15px;
+            background: #ff7987;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        nav button:hover {
+            background: #834752;
+        }
+        .container {
+            flex: 1; /* Permite que esta sección crezca */
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            display: none; /* Ocultar secciones por defecto */
+            z-index: 2;
+        }
+        .active {
+            display: block; /* Mostrar la sección activa */
+        }
+        .event, .menu-item {
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .event:hover, .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #dda9bf;
+            color: #fff;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Maid Café Formosa</h1>
+        <nav>
+            <button onclick="showSection('home')"><span class="item-name">Inicio</span></button>
+            <button onclick="showSection('about')"><span class="item-name">Sobre Nosotros</span></button>
+            <button onclick="showSection('events')"><span class="item-name">Eventos</span></button>
+            <button onclick="showSection('menu')"><span class="item-name">Menú de Comida</span></button>
+            <button onclick="showSection('contact')"><span class="item-name">Contacto</span></button>
+        </nav>
+    </header>
+    <div class="container active" id="home">
+        <span class="item-name">
+            <h2>Bienvenido a nuestra página de eventos</h2>
+            <p>Ejemplo.</p>
+        </span>
+    </div>
+    <div class="container" id="about">
+        <span class="item-name">
+            <h2>Sobre Nosotros</h2>
+            <p>Somos un grupo de cosplayers que queremos llevar a cabo eventos para todas las comunidades de la provincia de Formosa.</p>
+        </span>
+        <span>
+            <section>
+                <img src ="Images/Cosplayers/Brian.jpg">
+                <img src ="Images/Cosplayers/Cecy.jpg">
+                <img src ="Images/Cosplayers/Fran.jpg">
+                <img src ="Images/Cosplayers/Iki.jpg">
+                <img src ="Images/Cosplayers/Ivis.jpg">
+                <img src ="Images/Cosplayers/Slayer.jpg">
+                <img src ="Images/Cosplayers/Tokito.jpg">
+                <img src ="Images/Cosplayers/Justty.jpg">
+                <img src ="Images/Cosplayers/Karen.jpg">
+            </section>
+        </span>
+    </div>
+    <div class="container" id="events">
+        <span class="item-name">
+            <h2>Nuestros Eventos</h2>
+            <div class="event">
+                <img src="Images/Banners/Banner_01.png" alt="Descripción de la imagen" style="width:100%; object-fit: cover; filter: saturate(0%);">
+            </div>
+        </span>
+    </div>
+    <div class="container" id="menu">
+        <h2>Menú de Comida</h2>
+        <div class="menu">
+            <span class="item-name">
+                <div class="menu-item">
+                    <img src="Images/Menu/BubbleTea.jpg" alt="BubbleTea" style="width:100%; object-fit: cover;">
+                    <h3>BubbleTea</h3>
+                    <p>bebida saborisada.</p>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="container" id="contact">
+        <h2>Contacto</h2>
+        <p><span class="item-name">Para más información, envíanos un correo a:</span> <span class="item-price"><a href="mailto:maidcafeformosa@gmail.com">maidcafeformosa@gmail.com</a></span></p>
+    </div>
+    <footer>
+        <p><span class="item-number">2024</span> <span class="item-name">Maid Cafe Formosa&trade;.</span></p>
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.container');
+            sections.forEach(section => {
+                section.classList.remove('active'); // Ocultar todas las secciones
+            });
+            document.getElementById(sectionId).classList.add('active'); // Mostrar la sección seleccionada
+        }
+
+        // Cambiar fondo según el mes
+        const imagenes = {
+            0: "Images/Fondo/PinkBackground.png",
+            1: 'febrero.jpg',
+            2: "Images/Fondo/PinkBackground.png",
+            3: "Images/Fondo/PinkBackground.png",
+            4: "Images/Fondo/PinkBackground.png",
+            5: "Images/Fondo/PinkBackground.png",
+            6: "Images/Fondo/PinkBackground.png",
+            7: "Images/Fondo/PinkBackground.png",
+            8: "Images/Fondo/PinkBackground.png",
+            9: "Images/Fondo/PupleBackground.png",
+            10: "Images/Fondo/PinkBackground.png",
+            11: "Images/Fondo/PinkBackground.png"
+        };
+
+        document.body.style.backgroundImage = `url('${imagenes[new Date().getMonth()]}')`;
+    </script>
+</body>
+</html>
