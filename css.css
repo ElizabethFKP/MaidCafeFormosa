@@ -1,8 +1,8 @@
 section {
     display: flex;
     object-fit: cover;
-    width: 800px;
-    height: 430px;
+    width: 400px;
+    height: 215px;
 }
 
 section img {
@@ -13,6 +13,6 @@ section img {
 }
 
 section img:hover {
-    width: 500px;
+    width: 250px;
     filter: contrast(120%);
 }
