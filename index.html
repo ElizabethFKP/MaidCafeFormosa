@@ -6,6 +6,65 @@
     <title>Maid Café Formosa</title>
     <link rel="stylesheet" href="css.css">
     <style>
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tamaño mínimo y máximo de las columnas */
+            gap: 20px; /* Espaciado entre elementos */
+            margin-top: 20px;
+        }
+
+        .menu-item {
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item img {
+            max-width: 100%; /* Ajusta el ancho máximo de las imágenes */
+            height: auto; /* Mantén las proporciones de las imágenes */
+            border-radius: 8px;
+        }
+
+        .menu-item h3 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+            font-family: 'Bubble', sans-serif;
+        }
+
+        .menu-item p {
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* COMENTARIO:
+        Para cambiar los tamaños de las imágenes, ajusta los valores de max-width y height en la clase .menu-item img.
+        Ejemplo:
+        max-width: 150px; // Cambiar el ancho máximo a un valor fijo.
+        height: 150px;    // Definir una altura fija si no quieres mantener las proporciones.
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         .item-name {
             font-weight: bold;
             font-family: 'Bubble';
@@ -110,19 +169,11 @@
             <h2>Sobre Nosotros</h2>
             <p>Somos un grupo de cosplayers que queremos llevar a cabo eventos para todas las comunidades de la provincia de Formosa.</p>
         </span>
-        <!--<span>
-            <section>
-                <img src ="Images/Cosplayers/Brian.jpg"> */
-                <img src ="Images/Cosplayers/Cecy.jpg">
-                <img src ="Images/Cosplayers/Fran.jpg">
-                <img src ="Images/Cosplayers/Iki.jpg">
-                <img src ="Images/Cosplayers/Ivis.jpg">
-                <img src ="Images/Cosplayers/Slayer.jpg">
-                <img src ="Images/Cosplayers/Tokito.jpg">
-                <img src ="Images/Cosplayers/Justty.jpg">
-                <img src ="Images/Cosplayers/Karen.jpg">
-            </section>
-        </span>-->
+        <span>
+            <a href="https://www.instagram.com/iviss03/" target="_blank">
+                <img src="Images/Cosplayers/Brian.jpg" alt="Brian" style="width: 150px; height: auto;">
+            </a>
+        </span>
     </div>
     <div class="container" id="events">
         <span class="item-name">
@@ -133,16 +184,31 @@
         </span>
     </div>
     <div class="container" id="menu">
-        <h2>Menú de Comida</h2>
-        <div class="menu">
-            <span class="item-name">
-                <div class="menu-item">
-                    <img src="Images/Menu/BubbleTea.jpg" alt="BubbleTea" style="width:100%; object-fit: cover;">
-                    <h3>BubbleTea</h3>
-                    <p>bebida saborisada.</p>
-                </div>
-            </span>
+        <h2>Postres</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://img.icons8.com/?size=100&id=qDrK5eowxlwH&format=png&color=000000" alt="BubbleTea">
+                <h3>BubbleTea</h3>
+                <p>Bebida saborizada.</p>
+                <p>1.500</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://img.icons8.com/?size=100&id=qDrK5eowxlwH&format=png&color=000000" alt="Sandwich">
+                <h3>Sándwich</h3>
+                <p>Relleno de jamón y queso.</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://img.icons8.com/?size=100&id=1147&format=png&color=000000" alt="Cake">
+                <h3>Pastel</h3>
+                <p>Con sabores variados.</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://img.icons8.com/?size=100&id=qDrK5eowxlwH&format=png&color=000000" alt="Coffee">
+                <h3>Café</h3>
+                <p>Caliente o frío.</p>
+            </div>
         </div>
+        <h2>Bebidas</h2>
     </div>
     <div class="container" id="contact">
         <h2>Contacto</h2>
