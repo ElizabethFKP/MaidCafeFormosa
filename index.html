@@ -5,147 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maid Café Formosa</title>
     <link rel="stylesheet" href="css.css">
-    <style>
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Tamaño mínimo y máximo de las columnas */
-            gap: 20px; /* Espaciado entre elementos */
-            margin-top: 20px;
-        }
-
-        .menu-item {
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            background-color: #fff;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .menu-item img {
-            max-width: 100%; /* Ajusta el ancho máximo de las imágenes */
-            height: auto; /* Mantén las proporciones de las imágenes */
-            border-radius: 8px;
-        }
-
-        .menu-item h3 {
-            font-size: 18px;
-            margin: 10px 0 5px;
-            font-family: 'Bubble', sans-serif;
-        }
-
-        .menu-item p {
-            font-size: 14px;
-            font-family: Arial, sans-serif;
-        }
-
-        /* COMENTARIO:
-        Para cambiar los tamaños de las imágenes, ajusta los valores de max-width y height en la clase .menu-item img.
-        Ejemplo:
-        max-width: 150px; // Cambiar el ancho máximo a un valor fijo.
-        height: 150px;    // Definir una altura fija si no quieres mantener las proporciones.
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        .item-name {
-            font-weight: bold;
-            font-family: 'Bubble';
-        }
-        .item-price {
-            font-family: Arial, sans-serif;
-        }
-        .item-number {
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            font-family: 'Bubble';
-            color: #333;
-            transition: background-image 0.5s ease; /* Animación de fondo */
-        }
-        @font-face {
-            font-family: 'Bubble';
-            src: url('Fonts/Bubbleboddy.ttf') format('truetype'); /* Ajusta la ruta */
-            font-weight: normal;
-            font-style: normal;
-        }
-        header {
-            background: #F8C8DC;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            z-index: 1;
-        }
-        nav {
-            margin: 20px 0;
-        }
-        nav button {
-            margin: 0 15px;
-            padding: 10px 15px;
-            background: #ff7987;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        nav button:hover {
-            background: #834752;
-        }
-        .container {
-            flex: 1; /* Permite que esta sección crezca */
-            width: 80%;
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 8px;
-            display: none; /* Ocultar secciones por defecto */
-            z-index: 2;
-        }
-        .active {
-            display: block; /* Mostrar la sección activa */
-        }
-        .event, .menu-item {
-            margin: 20px 0;
-            transition: transform 0.3s, box-shadow 0.3s;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .event:hover, .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #dda9bf;
-            color: #fff;
-            z-index: 1;
-        }
-    </style>
+    <link rel="icon" href="Images/Icon.png" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -213,20 +73,31 @@
     <div class="container" id="menu">
         <h2>Bebidas</h2>
         <div class="menu-grid">
-            <div class="menu-item">
+            <div class="menu-item" onclick="toggleDetails(this)">
                 <img src="https://img.icons8.com/?size=100&id=qDrK5eowxlwH&format=png&color=000000" alt="BubbleTea">
                 <h3>BubbleTea</h3>
                 <p>Bebida saborizada.</p>
+                <div class="menu-details">
+                    <p><strong>Detalles:</strong> BubbleTea con tapioca y leche saborizada a elección.</p>
+                </div>
             </div>
-            <div class="menu-item">
+        
+            <div class="menu-item" onclick="toggleDetails(this)">
                 <img src="https://img.icons8.com/?size=100&id=37211&format=png&color=000000" alt="Sandwich">
                 <h3>Tè</h3>
                 <p>Tè clasico.</p>
+                <div class="menu-details">
+                    <p><strong>Detalles:</strong> Té negro o verde con saborizantes opcionales.</p>
+                </div>
             </div>
-            <div class="menu-item">
+        
+            <div class="menu-item" onclick="toggleDetails(this)">
                 <img src="https://img.icons8.com/?size=100&id=1147&format=png&color=000000" alt="Cake">
                 <h3>Cafe</h3>
                 <p>Cafe clasico.</p>
+                <div class="menu-details">
+                    <p><strong>Detalles:</strong> Café clásico con leche o crema.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -238,6 +109,51 @@
         <p><span class="item-number">2024</span> <span class="item-name">Maid Cafe Formosa&trade;.</span></p>
     </footer>
     <script>
+        // Función para mostrar y ocultar detalles del menú
+        // Función para mostrar y ocultar detalles del menú
+        // Función para mostrar y ocultar detalles del menú
+        // Función para mostrar y ocultar detalles del menú
+    function toggleDetails(item) {
+        // Primero ocultamos todos los detalles
+        const allDetails = document.querySelectorAll('.menu-details');
+        allDetails.forEach(detail => {
+            detail.classList.remove('active'); // Ocultar todos los detalles
+        });
+
+        // Luego mostramos el detalle del ítem que fue clickeado
+        const details = item.querySelector('.menu-details');
+        details.classList.toggle('active'); // Alternar visibilidad de los detalles
+    }
+
+    // Función para ocultar los detalles si se hace clic fuera de un ítem
+    function closeDetailsOnOutsideClick(event) {
+        const menuItems = document.querySelectorAll('.menu-item');
+        let clickedInsideMenu = false;
+
+        menuItems.forEach(item => {
+            if (item.contains(event.target)) {
+                clickedInsideMenu = true;
+            }
+        });
+
+        // Si se hizo clic fuera de un ítem, ocultamos todos los detalles
+        if (!clickedInsideMenu) {
+            const allDetails = document.querySelectorAll('.menu-details');
+            allDetails.forEach(detail => {
+                detail.classList.remove('active');
+            });
+        }
+    }
+
+// Escuchar clics en el documento para cerrar detalles si se hace clic fuera de un ítem
+document.addEventListener('click', closeDetailsOnOutsideClick);
+
+
+// Escuchar clics en el documento para cerrar detalles si se hace clic fuera de un ítem
+document.addEventListener('click', closeDetailsOnOutsideClick);
+
+
+
         function redirectToLocation(eventElement) {
             const locationUrl = eventElement.getAttribute('data-location'); // Obtener la URL de Google Maps
             if (locationUrl) {
