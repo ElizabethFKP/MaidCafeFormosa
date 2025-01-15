@@ -202,6 +202,9 @@
     <div class="container" id="events">
         <span class="item-name">
             <h2>Nuestros Eventos</h2>
+            <div class="event" data-location="https://maps.app.goo.gl/jqJuSUXD16kFWxT99" onclick="redirectToLocation(this)">
+                <img src="Images/Banners/Banner_02.png" alt="Descripción de la imagen" style="width:100%; object-fit: cover; filter: saturate(100%);">
+            </div>
             <div class="event">
                 <img src="Images/Banners/Banner_01.png" alt="Descripción de la imagen" style="width:100%; object-fit: cover; filter: saturate(0%);">
             </div>
@@ -235,6 +238,13 @@
         <p><span class="item-number">2024</span> <span class="item-name">Maid Cafe Formosa&trade;.</span></p>
     </footer>
     <script>
+        function redirectToLocation(eventElement) {
+            const locationUrl = eventElement.getAttribute('data-location'); // Obtener la URL de Google Maps
+            if (locationUrl) {
+                window.location.href = locationUrl; // Redirigir al usuario a Google Maps
+            }
+        }
+
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.container');
             sections.forEach(section => {
