@@ -1,18 +1,149 @@
-section {
+.menu {
+    margin-top: 20px;
+}
+
+.menu-item {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px; /* Separación entre ítems */
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.menu-item h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+    font-family: 'Bubble', sans-serif;
+}
+
+.menu-item p {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para los detalles del menú */
+.menu-details {
+    display: none; /* Ocultar los detalles por defecto */
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    opacity: 0; /* Inicia con opacidad 0 */
+    max-height: 0; /* Inicia con un máximo de altura de 0 */
+    overflow: hidden; /* Ocultar contenido que se desborda */
+    transition: opacity 0.3s ease, max-height 0.3s ease; /* Animación de opacidad y altura */
+}
+
+/* Mostrar los detalles cuando se hace clic */
+.menu-details.active {
+    display: block; /* Cambiar a display block cuando es visible */
+    opacity: 1; /* Hacerlos completamente visibles */
+    max-height: 1000px; /* Establecer una altura máxima para permitir el deslizamiento */
+}
+
+
+
+/* COMENTARIO:
+Para cambiar los tamaños de las imágenes, ajusta los valores de max-width y height en la clase .menu-item img.
+Ejemplo:
+max-width: 150px; // Cambiar el ancho máximo a un valor fijo.
+height: 150px;    // Definir una altura fija si no quieres mantener las proporciones.
+*/
+
+.item-name {
+    font-weight: bold;
+    font-family: 'Bubble';
+}
+.item-price {
+    font-family: Arial, sans-serif;
+}
+.item-number {
+    color: white;
+    font-family: Arial, sans-serif;
+}
+html, body {
+    height: 100%;
+    margin: 0;
     display: flex;
-    object-fit: cover;
-    width: 400px;
-    height: 215px;
+    flex-direction: column;
+    font-family: 'Bubble';
+    color: #333;
+    transition: background-image 0.5s ease; /* Animación de fondo */
 }
-
-section img {
-    width: 0px;
-    flex-grow: 1;
-    object-fit: cover;
-    transition: .5s ease;
+@font-face {
+    font-family: 'Bubble';
+    src: url('Fonts/Bubbleboddy.ttf') format('truetype'); /* Ajusta la ruta */
+    font-weight: normal;
+    font-style: normal;
 }
-
-section img:hover {
-    width: 250px;
-    filter: contrast(120%);
+header {
+    background: #F8C8DC;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    z-index: 1;
+}
+nav {
+    margin: 20px 0;
+}
+nav button {
+    margin: 0 15px;
+    padding: 10px 15px;
+    background: #ff7987;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+nav button:hover {
+    background: #834752;
+}
+.container {
+    flex: 1; /* Permite que esta sección crezca */
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    display: none; /* Ocultar secciones por defecto */
+    z-index: 2;
+}
+.active {
+    display: block; /* Mostrar la sección activa */
+}
+.event, .menu-item {
+    margin: 20px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.event:hover, .menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #dda9bf;
+    color: #fff;
+    z-index: 1;
 }
