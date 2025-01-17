@@ -1,191 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maid Café Formosa</title>
-    <link rel="stylesheet" href="css.css">
-    <link rel="icon" href="Images/Icon.png" type="image/x-icon">
-</head>
-<body>
-    <header>
-        <h1>Maid Café Formosa</h1>
-        <nav>
-            <button onclick="showSection('home')"><span class="item-name">Inicio</span></button>
-            <button onclick="showSection('about')"><span class="item-name">Sobre Nosotros</span></button>
-            <button onclick="showSection('events')"><span class="item-name">Eventos</span></button>
-            <button onclick="showSection('menu')"><span class="item-name">Menú de Comida</span></button>
-            <button onclick="showSection('contact')"><span class="item-name">Contacto</span></button>
-        </nav>
-    </header>
-    <div class="container active" id="home">
-        <span class="item-name">
-            <h2>Bienvenido a nuestra página de eventos</h2>
-            <p>Esta es nuestra pagina donde podras estar al dia con los eventos y participe del grupo MaidCafeFormosa.</p>
-        </span>
-    </div>
-    <div class="container" id="about">
-        <span class="item-name">
-            <h2>Sobre Nosotros</h2>
-            <p>Somos un grupo de cosplayers que queremos llevar a cabo eventos para todas las comunidades de la provincia de Formosa.</p>
-        </span>
-        <span>
-            <a href="https://www.instagram.com/carpi_cosplay" target="_blank">
-                <img src="Images/Cosplayers/CarpiCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/ikii_cos/" target="_blank">
-                <img src="Images/Cosplayers/IkiCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/iviss03/" target="_blank">
-                <img src="Images/Cosplayers/IvisCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/kura_cosplay_/" target="_blank">
-                <img src="Images/Cosplayers/KuraCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/lovecosplayformosa/" target="_blank">
-                <img src="Images/Cosplayers/LoveCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/quetza.cosplay/" target="_blank">
-                <img src="Images/Cosplayers/QuetzaCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/shiroganee.cos/" target="_blank">
-                <img src="Images/Cosplayers/ShiroganeCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/tia_karen28/" target="_blank">
-                <img src="Images/Cosplayers/TiaKarenCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-            <a href="https://www.instagram.com/tokito_juli/" target="_blank">
-                <img src="Images/Cosplayers/TokitoCosplay.png" alt="Brian" style="width: 150px; height: auto;">
-            </a>
-        </span>
-    </div>
-    <div class="container" id="events">
-        <span class="item-name">
-            <h2>Nuestros Eventos</h2>
-            <div class="event" data-location="https://maps.app.goo.gl/jqJuSUXD16kFWxT99" onclick="redirectToLocation(this)">
-                <img src="Images/Banners/Banner_02.png" alt="Descripción de la imagen" style="width:100%; object-fit: cover; filter: saturate(100%);">
-            </div>
-            <div class="event">
-                <img src="Images/Banners/Banner_01.png" alt="Descripción de la imagen" style="width:100%; object-fit: cover; filter: saturate(0%);">
-            </div>
-        </span>
-    </div>
-    <div class="container" id="menu">
-        <h2>Bebidas</h2>
-        <div class="menu-grid">
-            <div class="menu-item" onclick="toggleDetails(this)">
-                <img src="https://img.icons8.com/?size=100&id=qDrK5eowxlwH&format=png&color=000000" alt="BubbleTea">
-                <h3>BubbleTea</h3>
-                <p>Bebida saborizada.</p>
-                <div class="menu-details">
-                    <p><strong>Detalles:</strong> BubbleTea con tapioca y leche saborizada a elección.</p>
-                </div>
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Maid Café Formosa</title>
+        <link rel="stylesheet" href="css.css">
+        <link rel="icon" href="Images/Icon.png" type="image/x-icon">
+        <style>
+            /* Estilos opcionales para la sección del juego */
+            #game-section {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            #start-game-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+            }
+
+            #game-iframe {
+                display: none;
+                width: 100%;
+                height: 100vh;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Maid Café Formosa</h1>
+            <nav>
+                <button onclick="showSection('home')"><span class="item-name">Inicio</span></button>
+                <button onclick="showSection('about')"><span class="item-name">Sobre Nosotros</span></button>
+                <button onclick="showSection('events')"><span class="item-name">Eventos</span></button>
+                <button onclick="showSection('menu')"><span class="item-name">Menú de Comida</span></button>
+                <button onclick="showSection('contact')"><span class="item-name">Contacto</span></button>
+                <button onclick="showSection('game-section')"><span class="item-name">Game</span></button>
+            </nav>
+        </header>
         
-            <div class="menu-item" onclick="toggleDetails(this)">
-                <img src="https://img.icons8.com/?size=100&id=37211&format=png&color=000000" alt="Sandwich">
-                <h3>Tè</h3>
-                <p>Tè clasico.</p>
-                <div class="menu-details">
-                    <p><strong>Detalles:</strong> Té negro o verde con saborizantes opcionales.</p>
+        <div class="container active" id="home">
+            <span class="item-name">
+                <h2>Bienvenido a nuestra página de eventos</h2>
+                <p>Esta es nuestra pagina donde podras estar al dia con los eventos y participe del grupo MaidCafeFormosa.</p>
+            </span>
+        </div>
+
+        <div class="container" id="about">
+            <span class="item-name">
+                <h2>Sobre Nosotros</h2>
+                <p>Somos un grupo de cosplayers que queremos llevar a cabo eventos para todas las comunidades de la provincia de Formosa.</p>
+            </span>
+            <span>
+                <a href="https://www.instagram.com/carpi_cosplay" target="_blank">
+                    <img src="Images/Cosplayers/CarpiCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/ikii_cos/" target="_blank">
+                    <img src="Images/Cosplayers/IkiCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/iviss03/" target="_blank">
+                    <img src="Images/Cosplayers/IvisCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/kura_cosplay_/" target="_blank">
+                    <img src="Images/Cosplayers/KuraCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/lovecosplayformosa/" target="_blank">
+                    <img src="Images/Cosplayers/LoveCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/quetza.cosplay/" target="_blank">
+                    <img src="Images/Cosplayers/QuetzaCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/shiroganee.cos/" target="_blank">
+                    <img src="Images/Cosplayers/ShiroganeCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/tia_karen28/" target="_blank">
+                    <img src="Images/Cosplayers/TiaKarenCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+                <a href="https://www.instagram.com/tokito_juli/" target="_blank">
+                    <img src="Images/Cosplayers/TokitoCosplay.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
+            </span>
+        </div>
+
+        <div class="container" id="events">
+            <span class="item-name">
+                <h2>Nuestros Eventos</h2>
+                <div class="event" data-location="https://maps.app.goo.gl/jqJuSUXD16kFWxT99" onclick="redirectToLocation(this)">
+                    <img src="Images/Banners/Banner_02.png" alt="Descripción de la imagen" style="width:100%; object-fit: cover; filter: saturate(100%);">
                 </div>
-            </div>
-        
-            <div class="menu-item" onclick="toggleDetails(this)">
-                <img src="https://img.icons8.com/?size=100&id=1147&format=png&color=000000" alt="Cake">
-                <h3>Cafe</h3>
-                <p>Cafe clasico.</p>
-                <div class="menu-details">
-                    <p><strong>Detalles:</strong> Café clásico con leche o crema.</p>
+                <div class="event">
+                    <img src="Images/Banners/Banner_01.png" alt="Descripción de la imagen" style="width:100%; object-fit: cover; filter: saturate(0%);">
+                </div>
+            </span>
+        </div>
+
+        <div class="container" id="menu">
+            <h2>Bebidas</h2>
+            <div class="menu-grid">
+                <div class="menu-item" onclick="toggleDetails(this)">
+                    <img src="https://img.icons8.com/?size=100&id=qDrK5eowxlwH&format=png&color=000000" alt="BubbleTea">
+                    <h3>BubbleTea</h3>
+                    <p>Bebida saborizada.</p>
+                    <div class="menu-details">
+                        <p><strong>Detalles:</strong> BubbleTea con tapioca y leche saborizada a elección.</p>
+                    </div>
+                </div>
+            
+                <div class="menu-item" onclick="toggleDetails(this)">
+                    <img src="https://img.icons8.com/?size=100&id=37211&format=png&color=000000" alt="Sandwich">
+                    <h3>Tè</h3>
+                    <p>Tè clasico.</p>
+                    <div class="menu-details">
+                        <p><strong>Detalles:</strong> Té negro o verde con saborizantes opcionales.</p>
+                    </div>
+                </div>
+            
+                <div class="menu-item" onclick="toggleDetails(this)">
+                    <img src="https://img.icons8.com/?size=100&id=1147&format=png&color=000000" alt="Cake">
+                    <h3>Cafe</h3>
+                    <p>Cafe clasico.</p>
+                    <div class="menu-details">
+                        <p><strong>Detalles:</strong> Café clásico con leche o crema.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container" id="contact">
-        <h2>Contacto</h2>
-        <p><span class="item-name">Para más información, envíanos un correo a:</span> <span class="item-price"><a href="mailto:maidcafeformosa@gmail.com">maidcafeformosa@gmail.com</a></span></p>
-    </div>
-    <footer>
-        <p><span class="item-number">2024</span> <span class="item-name">Maid Cafe Formosa&trade;.</span></p>
-    </footer>
-    <script>
-        // Función para mostrar y ocultar detalles del menú
-        // Función para mostrar y ocultar detalles del menú
-        // Función para mostrar y ocultar detalles del menú
-        // Función para mostrar y ocultar detalles del menú
-    function toggleDetails(item) {
-        // Primero ocultamos todos los detalles
-        const allDetails = document.querySelectorAll('.menu-details');
-        allDetails.forEach(detail => {
-            detail.classList.remove('active'); // Ocultar todos los detalles
-        });
 
-        // Luego mostramos el detalle del ítem que fue clickeado
-        const details = item.querySelector('.menu-details');
-        details.classList.toggle('active'); // Alternar visibilidad de los detalles
-    }
+            <!-- Sección de juego con botón para iniciar -->
+        <div class="container" id="game-section">
+            <h2>Juega a nuestro juego</h2>
+            <!-- Incluir el iframe del juego, pero oculto inicialmente -->
+            <iframe id="game-iframe" src="Games/Game.html" width="800" height="600" frameborder="0" style="display:none;"></iframe>
 
-    // Función para ocultar los detalles si se hace clic fuera de un ítem
-    function closeDetailsOnOutsideClick(event) {
-        const menuItems = document.querySelectorAll('.menu-item');
-        let clickedInsideMenu = false;
+            <button id="start-game-btn">
+                <img src="Games/Game.icon.png" alt="Iniciar Juego" style="width: 100px; height: auto;">
+            </button>
+        </div>
 
-        menuItems.forEach(item => {
-            if (item.contains(event.target)) {
-                clickedInsideMenu = true;
+        <div class="container" id="contact">
+            <h2>Contacto</h2>
+            <p><span class="item-name">Para más información, envíanos un correo a:</span> <span class="item-price"><a href="mailto:maidcafeformosa@gmail.com">maidcafeformosa@gmail.com</a></span></p>
+        </div>
+
+        <footer>
+            <p><span class="item-number">2024</span> <span class="item-name">Maid Cafe Formosa&trade;.</span></p>
+        </footer>
+
+        <script>
+            // Función para mostrar y ocultar detalles del menú
+            function toggleDetails(item) {
+                // Primero ocultamos todos los detalles
+                const allDetails = document.querySelectorAll('.menu-details');
+                allDetails.forEach(detail => {
+                    detail.classList.remove('active'); // Ocultar todos los detalles
+                });
+
+                // Luego mostramos el detalle del ítem que fue clickeado
+                const details = item.querySelector('.menu-details');
+                details.classList.toggle('active'); // Alternar visibilidad de los detalles
             }
-        });
 
-        // Si se hizo clic fuera de un ítem, ocultamos todos los detalles
-        if (!clickedInsideMenu) {
-            const allDetails = document.querySelectorAll('.menu-details');
-            allDetails.forEach(detail => {
-                detail.classList.remove('active');
-            });
-        }
-    }
+            // Función para ocultar los detalles si se hace clic fuera de un ítem
+            function closeDetailsOnOutsideClick(event) {
+                const menuItems = document.querySelectorAll('.menu-item');
+                let clickedInsideMenu = false;
 
-// Escuchar clics en el documento para cerrar detalles si se hace clic fuera de un ítem
-document.addEventListener('click', closeDetailsOnOutsideClick);
+                menuItems.forEach(item => {
+                    if (item.contains(event.target)) {
+                        clickedInsideMenu = true;
+                    }
+                });
 
-
-// Escuchar clics en el documento para cerrar detalles si se hace clic fuera de un ítem
-document.addEventListener('click', closeDetailsOnOutsideClick);
-
-
-
-        function redirectToLocation(eventElement) {
-            const locationUrl = eventElement.getAttribute('data-location'); // Obtener la URL de Google Maps
-            if (locationUrl) {
-                window.location.href = locationUrl; // Redirigir al usuario a Google Maps
+                // Si se hizo clic fuera de un ítem, ocultamos todos los detalles
+                if (!clickedInsideMenu) {
+                    const allDetails = document.querySelectorAll('.menu-details');
+                    allDetails.forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                }
             }
-        }
 
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.container');
-            sections.forEach(section => {
-                section.classList.remove('active'); // Ocultar todas las secciones
+            // Escuchar clics en el documento para cerrar detalles si se hace clic fuera de un ítem
+            document.addEventListener('click', closeDetailsOnOutsideClick);
+
+            function redirectToLocation(eventElement) {
+                const locationUrl = eventElement.getAttribute('data-location'); // Obtener la URL de Google Maps
+                if (locationUrl) {
+                    window.location.href = locationUrl; // Redirigir al usuario a Google Maps
+                }
+            }
+
+            function showSection(sectionId) {
+                const sections = document.querySelectorAll('.container');
+                sections.forEach(section => {
+                    section.classList.remove('active'); // Ocultar todas las secciones
+                });
+                document.getElementById(sectionId).classList.add('active'); // Mostrar la sección seleccionada
+            }
+
+            // Cambiar fondo según el mes
+            const imagenes = {
+                0: "Images/Fondo/PinkBackground.png",
+                1: "Images/Fondo/ValentinoBackground.png",
+                2: "Images/Fondo/PinkBackground.png",
+                3: "Images/Fondo/PinkBackground.png",
+                4: "Images/Fondo/PinkBackground.png",
+                5: "Images/Fondo/PinkBackground.png",
+                6: "Images/Fondo/PinkBackground.png",
+                7: "Images/Fondo/PinkBackground.png",
+                8: "Images/Fondo/PinkBackground.png",
+                9: "Images/Fondo/PupleBackground.png",
+                10: "Images/Fondo/PinkBackground.png",
+                11: "Images/Fondo/PinkBackground.png"
+            };
+
+            document.body.style.backgroundImage = `url('${imagenes[new Date().getMonth()]}')`;
+
+            // Función para iniciar el juego y ponerlo en pantalla completa
+            document.getElementById("start-game-btn").addEventListener("click", function() {
+                const iframe = document.getElementById("game-iframe");
+
+                // Mostrar el iframe del juego
+                iframe.style.display = "block";
+
+                // Ocultar el botón de inicio
+                this.style.display = "none";
+
+                // Hacer el iframe a pantalla completa
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) { // Firefox
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari y Opera
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) { // Internet Explorer/Edge
+                    iframe.msRequestFullscreen();
+                }
             });
-            document.getElementById(sectionId).classList.add('active'); // Mostrar la sección seleccionada
-        }
-
-        // Cambiar fondo según el mes
-        const imagenes = {
-            0: "Images/Fondo/PinkBackground.png",
-            1: "Images/Fondo/ValentinoBackground.png",
-            2: "Images/Fondo/PinkBackground.png",
-            3: "Images/Fondo/PinkBackground.png",
-            4: "Images/Fondo/PinkBackground.png",
-            5: "Images/Fondo/PinkBackground.png",
-            6: "Images/Fondo/PinkBackground.png",
-            7: "Images/Fondo/PinkBackground.png",
-            8: "Images/Fondo/PinkBackground.png",
-            9: "Images/Fondo/PupleBackground.png",
-            10: "Images/Fondo/PinkBackground.png",
-            11: "Images/Fondo/PinkBackground.png"
-        };
-
-        document.body.style.backgroundImage = `url('${imagenes[new Date().getMonth()]}')`;
-    </script>
-</body>
+        </script>
+    </body>
 </html>
