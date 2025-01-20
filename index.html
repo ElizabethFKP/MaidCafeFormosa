@@ -10,7 +10,7 @@
             /* Estilos opcionales para la sección del juego */
             #game-section {
                 text-align: center;
-                margin-top: 20px;
+                margin-top: 0px;
             }
 
             #start-game-btn {
@@ -20,7 +20,13 @@
                 padding: 0;
             }
 
-            #game-iframe {
+            #game-SkyJump {
+                display: none;
+                width: 100%;
+                height: 100vh;
+                border: none;
+            }
+            #game-MaidRunner {
                 display: none;
                 width: 100%;
                 height: 100vh;
@@ -81,6 +87,9 @@
                 <a href="https://www.instagram.com/tokito_juli/" target="_blank">
                     <img src="Images/Cosplayers/TokitoCosplay.png" alt="Brian" style="width: 150px; height: auto;">
                 </a>
+                <a href="https://www.instagram.com/devil_sleyer01/" target="_blank">
+                    <img src="Images/Cosplayers/DevilSlayer.png" alt="Brian" style="width: 150px; height: auto;">
+                </a>
             </span>
         </div>
 
@@ -127,16 +136,27 @@
                 </div>
             </div>
         </div>
-
+    
             <!-- Sección de juego con botón para iniciar -->
         <div class="container" id="game-section">
-            <h2>Juega a nuestro juego</h2>
-            <!-- Incluir el iframe del juego, pero oculto inicialmente -->
-            <iframe id="game-iframe" src="Games/SkyJump/Game.html" width="800" height="600" frameborder="0" style="display:none;"></iframe>
-
-            <button id="start-game-btn">
-                <img src="Games/SkyJump/Game.icon.png" alt="Iniciar Juego" style="width: 100px; height: auto;">
-            </button>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h2>Sky Jump</h2>
+                    <!-- Incluir el iframe del juego, pero oculto inicialmente -->
+                    <iframe id="game-SkyJump" src="Games/SkyJump/Game.html" width="640" height="320" frameborder="0" style="display:none;"></iframe>
+                    <button id="start-game-SkyJump">
+                        <img src="Games/SkyJump/Game.icon.png" alt="Iniciar Juego" style="width: 100px; height: auto;">
+                    </button>
+                </div>
+                <div class="menu-item">
+                    <h2>Maid Runner</h2>
+                    <!-- Incluir el iframe del juego, pero oculto inicialmente -->
+                    <iframe id="game-MaidRunner" src="Games/MaidRunner/Game.html" width="640" height="320" frameborder="0" style="display:none;"></iframe>
+                    <button id="start-game-MaidRunner">
+                        <img src="Games/MaidRunner/Game.icon.png" alt="Iniciar Juego" style="width: 100px; height: auto;">
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="container" id="contact">
@@ -219,8 +239,8 @@
             document.body.style.backgroundImage = `url('${imagenes[new Date().getMonth()]}')`;
 
             // Función para iniciar el juego y ponerlo en pantalla completa
-            document.getElementById("start-game-btn").addEventListener("click", function() {
-                const iframe = document.getElementById("game-iframe");
+            document.getElementById("start-game-SkyJump").addEventListener("click", function() {
+                const iframe = document.getElementById("game-SkyJump");
 
                 // Mostrar el iframe del juego
                 iframe.style.display = "block";
@@ -239,6 +259,28 @@
                     iframe.msRequestFullscreen();
                 }
             });
+
+            document.getElementById("start-game-MaidRunner").addEventListener("click", function() {
+                const iframe = document.getElementById("game-MaidRunner");
+
+                // Mostrar el iframe del juego
+                iframe.style.display = "block";
+
+                // Ocultar el botón de inicio
+                this.style.display = "none";
+
+                // Hacer el iframe a pantalla completa
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) { // Firefox
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari y Opera
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) { // Internet Explorer/Edge
+                    iframe.msRequestFullscreen();
+                }
+            });
+            
         </script>
     </body>
 </html>
